@@ -51,7 +51,7 @@ export default function PropertiesPage() {
     if (filters.budget) params.budget = filters.budget;
     api
       .get("/properties/list", { params })
-      .then((res) => setProperties(res.data || []))
+      .then((res) => setProperties(res.data?.data || [])) 
       .catch(() => setProperties([]))
       .finally(() => setLoading(false));
   }
