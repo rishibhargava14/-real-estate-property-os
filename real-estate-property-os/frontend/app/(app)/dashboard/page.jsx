@@ -29,9 +29,9 @@ export default function DashboardPage() {
       api.get("/sitevisits/list", { params: { companyId, date: today() } }),
     ])
       .then(([propsRes, leadsRes, visitsRes]) => {
-        setProperties(propsRes.data || []);
-        setHotLeads(leadsRes.data || []);
-        setTodayVisits(visitsRes.data || []);
+       setProperties(propsRes.data?.data || []);
+        setHotLeads(leadsRes.data?.data || []);
+        setTodayVisits(visitsRes.data?.data || []);
       })
       .catch(() => setError("Couldn't load your dashboard. Try refreshing."))
       .finally(() => setLoading(false));
