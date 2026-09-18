@@ -33,8 +33,8 @@ export default function PublicStorefrontPage() {
     api
       .get("/properties/public", { params })
       .then((res) => {
-        setCompany(res.data?.company || null);
-        setProperties(res.data?.properties || []);
+       setCompany(res.data?.data?.company || null);
+       setProperties(res.data?.data?.properties || []);
       })
       .catch(() => {
         setCompany(null);
